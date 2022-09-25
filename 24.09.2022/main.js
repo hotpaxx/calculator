@@ -21,3 +21,15 @@ function sumNum(){
     const tmp = initNumbers().first + initNumbers().second
     renderResult(tmp)
 }
+function resNum(){
+    const tmp = initNumbers().first - initNumbers().second
+    renderResult(tmp)
+}
+function dilNum(){
+    const tmp = initNumbers().first / initNumbers().second
+    renderResult(tmp)
+}
+function umnNum(){
+    const tmp = initNumbers().first * initNumbers().second
+    renderResult(tmp)
+}
