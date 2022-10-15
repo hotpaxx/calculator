@@ -1,3 +1,4 @@
+
 const users = [
     {
         content: 'Frontend Misha',
@@ -26,18 +27,65 @@ const users = [
     }
 ]
 const app = document.getElementById('app')
-for(let i = 0; i < users.length; i++){
-    let div = document.createElement('div')
-    div.id = users[i].id
-    div.addEventListener('click',()=>{
-        console.log(users[i].relations)
-    })
-    div.textContent = `${i+1}. ${users[i].content}`
-    app.appendChild(div)
-    div.addEventListener('click',()=>{
-        document.getElementById(users[i].id).style.color = 'red'
-    })
+const renderList = () => {
+
+
+    for(const item of users){
+        
+        let div = document.createElement('div')
+        div.id = item.id
+        div.className = "block"
+        div.textContent = `${item.content}`
+        app.appendChild(div)
+
+        div.addEventListener(`click`,()=>{
+            
+            inFocus(item)
+        })
+
+    }
+    const inFocus = (item) => {
+        const clickTag = document.getElementById(item.id)
+        if(clickTag.classList.contains('focus')){
+            resetList()
+        }else{
+            resetList()
+            clickTag.classList.add('focus')
+            enableRelations(item.relations)
+        }
+
+        
+    }
+    const enableRelations = (rel) =>{
+        for(const itemRel of rel){
+            const enableTag = document.getElementById(itemRel)
+            enableTag.classList.add('enable')
+        }
+    }
+    const resetList = () =>{
+        for(item of users){
+            const tag = document.getElementById(item.id)
+            tag.classList.remove('focus','enable')
+        }
+    }
+
 }
+
+
+renderList()
+// for(let i = 0; i < users.length; i++){
+//     let div = document.createElement('div')
+//     div.id = users[i].id
+//     div.addEventListener('click',()=>{
+//         console.log(users[i].relations)
+//     })
+//     div.textContent = `${i+1}. ${users[i].content}`
+//     app.appendChild(div)
+//     div.addEventListener('click',()=>{
+//         document.getElementById(users[i].id).style.color = 'red'
+//     })
+    
+// }
 
 
 

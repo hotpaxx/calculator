@@ -2,6 +2,24 @@
     margin: 0;
     padding: 0;
 }
-.fcolor{
-    background-color: blueviolet;
+.parrent{
+    display: flex;
+ 
+    flex-direction: column;
+   
+    align-items: center;
+    margin-top: 50px;
+}
+
+.block{
+    border: 1px solid black;
+    text-align: center;
+    padding: 20px;
+    width: 200px;
+}
+.focus{
+    background-color: orange;
+}
+.enable{
+    background-color: green;
 }
